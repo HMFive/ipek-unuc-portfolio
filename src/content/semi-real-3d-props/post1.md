@@ -5,5 +5,5 @@ pubDate: "2023"
 heroImage: "/adventure-kit.png"
 wfImage: "/adventure-kit-wf.png"
 gallery: "adventure-kit"
-tags: ["Prop Pack"]
+tags: ["Blender" , "Prop Pack"]
 ---
