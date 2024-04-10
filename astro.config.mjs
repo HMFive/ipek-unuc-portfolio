@@ -9,11 +9,6 @@ import netlify from "@astrojs/netlify/functions";
 export default defineConfig({
   site: "https://ipekunuc.com",
   integrations: [mdx(), sitemap(), tailwind()],
-  output: "static",
+  output: "hybrid",
   adapter: netlify(),
-  image: {
-    service: {
-      entrypoint: "astro/assets/services/noop",
-    },
-  },
 });
