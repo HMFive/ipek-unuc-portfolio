@@ -9,6 +9,4 @@ import netlify from "@astrojs/netlify/functions";
 export default defineConfig({
   site: "https://ipekunuc.com",
   integrations: [mdx(), sitemap(), tailwind()],
-  output: "static",
-  adapter: netlify(),
 });
