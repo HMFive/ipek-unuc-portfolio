@@ -7,4 +7,13 @@ import tailwind from "@astrojs/tailwind";
 export default defineConfig({
   site: "https://ipekunuc.com",
   integrations: [mdx(), sitemap(), tailwind()],
+  image: {
+    service: imageService({
+      // This can usually be auto-detected
+      fallbackService: "netlify",
+      placeholder: "blurhash",
+      // This is the default
+      layout: "constrained",
+    }),
+  },
 });
