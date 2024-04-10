@@ -2,7 +2,9 @@
 import { type BlogSchema } from "../content/config";
 import BaseLayout from "./BaseLayout.astro";
 import dayjs from "dayjs";
+import "photoswipe/style.css";
 import localizedFormat from "dayjs/plugin/localizedFormat";
+
 // @ts-ignore
 
 const {
@@ -21,7 +23,6 @@ const {
 dayjs.extend(localizedFormat);
 const displayDate = dayjs(pubDate).format("ll");
 import { Image } from "astro:assets";
-import Lightbox from "@julian_cataldo/astro-lightbox/Lightbox.astro";
 import Gallery from "@components/Gallery.astro";
 
 const imageFiles = import.meta.glob<ImageMetadata>(
@@ -56,23 +57,6 @@ if (wfImage) {
 
 <script src="https://unpkg.com/@cloudfour/image-compare/dist/index.min.js"
 ></script>
-<script>
-  import PhotoSwipeLightbox from "photoswipe/lightbox";
-  import "photoswipe/style.css";
-
-  const lightbox = new PhotoSwipeLightbox({
-    // may select multiple "galleries"
-    gallery: "#gallery--getting-started",
-
-    // Elements within gallery (slides)
-    children: "a",
-
-    // setup PhotoSwipe Core dynamic import
-    pswpModule: () =>
-      import("../../node_modules/photoswipe/dist/photoswipe.esm.js"),
-  });
-  lightbox.init();
-</script>
 
 <BaseLayout
   title={title}
@@ -101,102 +85,102 @@ if (wfImage) {
           </image-compare>
         )
       }
-
-      <div id="gallery--getting-started" class="flex flex-wrap justify-center">
-        <div class="lg:flex justify-center">
-          <div class="mx-0 lg:mr-4">
-            <div class="rounded-lg">
-              <a
-                href={heroImage}
-                data-pswp-width={hiW}
-                data-pswp-height={hiH}
-                target="_blank"
-              >
-                <Image
-                  style="margin-top: 0;"
-                  width={hiW > hiH ? 1200 : 600}
-                  height={422}
-                  format="webp"
-                  src={heroImage}
-                  alt={title}
-                  class="rounded-lg"
-                />
-              </a>
+      <photo-swipe>
+        <div id="gallery" class="flex flex-wrap justify-center">
+          <div class="lg:flex justify-center">
+            <div class="mx-0 lg:mr-4">
+              <div class="rounded-lg">
+                <a
+                  href={heroImage}
+                  data-pswp-width={hiW}
+                  data-pswp-height={hiH}
+                  target="_blank"
+                >
+                  <Image
+                    style="margin-top: 0;"
+                    width={hiW > hiH ? 1200 : 600}
+                    height={422}
+                    format="webp"
+                    src={heroImage}
+                    alt={title}
+                    class="rounded-lg"
+                  />
+                </a>
+              </div>
             </div>
+            {
+              heroImage2 && (
+                <div class="mx-0">
+                  <div class="rounded-lg" id="gallery--getting-started">
+                    <a
+                      href={heroImage2}
+                      data-pswp-width={hiAltW}
+                      data-pswp-height={hiAltH}
+                      target="_blank"
+                    >
+                      <Image
+                        style="margin-top: 0;"
+                        width={hiW > hiH ? 1200 : 600}
+                        height={422}
+                        format="webp"
+                        src={heroImage2}
+                        alt={title}
+                        class="rounded-lg"
+                      />
+                    </a>
+                  </div>
+                </div>
+              )
+            }
           </div>
           {
-            heroImage2 && (
-              <div class="mx-0">
-                <div class="rounded-lg" id="gallery--getting-started">
-                  <a
-                    href={heroImage2}
-                    data-pswp-width={hiAltW}
-                    data-pswp-height={hiAltH}
-                    target="_blank"
-                  >
-                    <Image
-                      style="margin-top: 0;"
-                      width={hiW > hiH ? 1200 : 600}
-                      height={422}
-                      format="webp"
-                      src={heroImage2}
-                      alt={title}
-                      class="rounded-lg"
-                    />
-                  </a>
-                </div>
+            wfImage && (
+              <div id="gallery--getting-started">
+                <a
+                  href={wfImage}
+                  data-pswp-width={wfW}
+                  data-pswp-height={wfH}
+                  target="_blank"
+                >
+                  <Image
+                    style="margin-top: 0;"
+                    id="wf"
+                    width={wfW > wfH ? 1200 : 600}
+                    height={422}
+                    format="webp"
+                    src={wfImage}
+                    alt={title}
+                    class="rounded-lg"
+                  />
+                </a>
+              </div>
+            )
+          }
+          {
+            wfImage2 && (
+              <div id="gallery--getting-started">
+                <a
+                  href={wfImage2}
+                  data-pswp-width={wfW}
+                  data-pswp-height={wfH}
+                  target="_blank"
+                >
+                  <Image
+                    style="margin-top: 0;"
+                    id="wf"
+                    width={wfW > wfH ? 1200 : 600}
+                    height={422}
+                    format="webp"
+                    src={wfImage2}
+                    alt={title}
+                    class="rounded-lg"
+                  />
+                </a>
               </div>
             )
           }
         </div>
-        {
-          wfImage && (
-            <div id="gallery--getting-started">
-              <a
-                href={wfImage}
-                data-pswp-width={wfW}
-                data-pswp-height={wfH}
-                target="_blank"
-              >
-                <Image
-                  style="margin-top: 0;"
-                  id="wf"
-                  width={wfW > wfH ? 1200 : 600}
-                  height={422}
-                  format="webp"
-                  src={wfImage}
-                  alt={title}
-                  class="rounded-lg"
-                />
-              </a>
-            </div>
-          )
-        }
-        {
-          wfImage2 && (
-            <div id="gallery--getting-started">
-              <a
-                href={wfImage2}
-                data-pswp-width={wfW}
-                data-pswp-height={wfH}
-                target="_blank"
-              >
-                <Image
-                  style="margin-top: 0;"
-                  id="wf"
-                  width={wfW > wfH ? 1200 : 600}
-                  height={422}
-                  format="webp"
-                  src={wfImage2}
-                  alt={title}
-                  class="rounded-lg"
-                />
-              </a>
-            </div>
-          )
-        }
-      </div>
-
+      </photo-swipe>
       {gallery && <Gallery folder={gallery} />}
 
       <br />

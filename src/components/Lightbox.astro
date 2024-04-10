@@ -104,3 +104,24 @@ const imagetitles = images.map(
 
   customElements.define("lightbox-inner", LightboxInner);
 </script>
+
+<script>
+  import PhotoSwipeLightbox from "photoswipe/lightbox";
+
+  class PhotoSwipe extends HTMLElement {
+    constructor() {
+      super();
+
+      const lightbox = new PhotoSwipeLightbox({
+        mainClass: "pswp--custom-icon-colors",
+        gallerySelector: "#gallery",
+        childSelector: "a",
+        pswpModule: () => import("photoswipe"),
+      });
+
+      lightbox.init();
+    }
+  }
+
+  customElements.define("photo-swipe", PhotoSwipe);
+</script>
