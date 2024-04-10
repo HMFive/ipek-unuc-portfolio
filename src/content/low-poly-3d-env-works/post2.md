@@ -4,5 +4,5 @@ description: ""
 pubDate: "2023"
 heroImage: "/coffee-shop.png"
 wfImage: "/coffee-shop-wf.png"
-tags: ["Lowpoly Flowers", "Lowpoly Cafe Props"]
+tags: ["Blender" , "Lowpoly"]
 ---
