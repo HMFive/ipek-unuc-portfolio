@@ -16,8 +16,6 @@
     "@astrojs/rss": "^3.0.0",
     "@astrojs/sitemap": "^3.0.1",
     "@astrojs/tailwind": "^5.0.3",
-    "@julian_cataldo/astro-lightbox": "^0.10.11",
-    "@unpic/astro": "^0.0.44",
     "astro": "^4.0.2",
     "daisyui": "^4.4.10",
     "dayjs": "^1.11.9",
