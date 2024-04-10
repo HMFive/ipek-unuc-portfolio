@@ -11,4 +11,9 @@ export default defineConfig({
   integrations: [mdx(), sitemap(), tailwind()],
   output: "static",
   adapter: netlify(),
+  image: {
+    service: {
+      entrypoint: "astro/assets/services/noop",
+    },
+  },
 });
