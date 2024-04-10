@@ -1,0 +1,44 @@
+---
+import exifr from "exifr";
+import Lightbox from "./lightbox.astro";
+
+export interface Props {
+  folder: string;
+  galleryStyle?: object;
+}
+
+const { folder, galleryStyle } = Astro.props;
+
+const imageFiles = import.meta.glob<ImageMetadata>(
+  "../../public/gallery/**/*.{png,webp,jpg,jpeg}",
+  {
+    import: "default",
+    eager: true,
+  }
+);
+const folderFiles = Object.keys(imageFiles).filter(
+  (image) => image.search(folder) >= 0
+);
+const imageSrcs = folderFiles.map((image) => imageFiles[image]);
+const gallery = "gallery-" + folder;
+
+const exifs = [] as Record<string, any>[];
+for (let i in folderFiles) {
+  const exif = await exifr.parse(folderFiles[i].replace("../", "./src/"));
+  exifs.push(exif);
+}
+---
+
+<div
+  id={gallery}
+  class="not-prose mx-auto block w-full columns-1 sm:columns-2 lg:columns-3"
+  itemscope
+  itemtype="http://schema.org/ImageGallery"
+>
+  <Lightbox
+    id={gallery}
+    galleryStyle={galleryStyle}
+    images={imageSrcs}
+    exifs={exifs}
+  />
+</div>

@@ -1,0 +1,58 @@
+---
+const {
+  title,
+  img,
+  imgAlt,
+  desc,
+  url,
+  badge,
+  tags,
+  target = "_blank",
+  pubDate,
+} = Astro.props;
+import { Image } from "astro:assets";
+const tag_url = url.split("/").slice(0, -1).join("/") + "/tag";
+---
+
+<div class="rounded-lg bg-base-100 transition ease-in-out hover:scale-[102%]">
+  <a href={url} target={target}>
+    <div class="group sm:hero-content py-4 flex-col md:flex-row">
+      {
+        img && (
+          <div class="relative group">
+            <Image
+              style={{
+                aspectRatio: "5/6",
+                objectFit: "cover",
+              }}
+              src={img}
+              width={1280}
+              height={1536}
+              format="webp"
+              alt={title}
+              class="max-w-full md:max-w-[30rem] rounded-lg group-hover:hidden"
+            />
+            <Image
+              style={{
+                aspectRatio: "5/6",
+                objectFit: "cover",
+              }}
+              src={imgAlt ?? img}
+              width={1280}
+              height={1536}
+              format="webp"
+              alt={title}
+              class="max-w-full md:max-w-[30rem] rounded-lg hidden group-hover:flex"
+            />
+            <div class="absolute p-1 transition ease-in-out xl:opacity-0 opacity-100 w-full rounded-b-lg text-center text-2xl bottom-0 backdrop-blur-sm bg-white/10 group-hover:opacity-100 duration-500">
+              Show more
+            </div>
+          </div>
+        )
+      }
+    </div>
+  </a>
+
+  <p class="sm:px-4 text-xl">{title}</p>
+  <p class="sm:px-4 text-md">{pubDate}</p>
+</div>

@@ -1,0 +1,67 @@
+---
+const { sideBarActiveItemID } = Astro.props;
+const activeClass = "bg-base-300"; // For primary color replace with `active` class
+---
+
+<ul class="menu grow shrink menu-md overflow-y-auto">
+  <li><a class="py-3 text-base" id="home" href="/">Home</a></li>
+  <li>
+    <a
+      class="py-3 text-base"
+      id="semi-real-3d-env-works"
+      href="/semi-real-3d-env-works/">Semi-Realistic 3D Environmental Works</a
+    >
+  </li>
+  <li>
+    <a
+      class="py-3 text-base"
+      id="low-poly-3d-env-works"
+      href="/low-poly-3d-env-works/">Low-Poly 3D Environmental Works</a
+    >
+  </li>
+  <li>
+    <a
+      class="py-3 text-base"
+      id="semi-real-3d-props"
+      href="/semi-real-3d-props/">Semi-Real 3D Props</a
+    >
+  </li>
+  <li>
+    <a class="py-3 text-base" id="low-poly-3d-props" href="/low-poly-3d-props/"
+      >Low Poly 3D Props</a
+    >
+  </li>
+  <li>
+    <a class="py-3 text-base" id="parametric-works" href="/parametric-works/"
+      >Parametric Works</a
+    >
+  </li>
+  <li>
+    <a class="py-3 text-base" id="3d-characters" href="/3d-characters/"
+      >3D Characters</a
+    >
+  </li>
+  <li>
+    <a class="py-3 text-base" id="2d-works" href="/2d-works/">2D Works</a>
+  </li>
+
+  <li><a class="py-3 text-base" id="cv" href="/cv">CV</a></li>
+  <li>
+    <a
+      class="py-3 text-base"
+      href="mailto:ipekunucg@gmail.com"
+      target="_blank"
+      referrerpolicy="no-referrer-when-downgrade">Contact</a
+    >
+  </li>
+</ul>
+
+<script
+  define:vars={{
+    sideBarActiveItemID: sideBarActiveItemID,
+    activeClass: activeClass,
+  }}
+>
+  const activeItemElem = document.getElementById(sideBarActiveItemID);
+  activeItemElem && activeItemElem.classList.add(activeClass);
+</script>
