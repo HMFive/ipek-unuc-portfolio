@@ -19,6 +19,7 @@ const {
   gallery,
   wfImage,
   wfImage2,
+  imageCompare = true,
 } = Astro.props;
 dayjs.extend(localizedFormat);
 const displayDate = dayjs(pubDate).format("ll");
@@ -68,7 +69,7 @@ if (wfImage) {
     <article class="prose prose-lg max-w-[1000px] prose-img:mx-auto">
       <h1 class="title text-center my-2 text-4xl font-bold">{title}</h1>
       {
-        heroImage2 && (
+        heroImage2 && imageCompare && (
           <image-compare label-text="Screen Reader Label Text">
             <img
               slot="image-1"
@@ -87,7 +88,7 @@ if (wfImage) {
       }
       <photo-swipe>
         <div id="gallery" class="flex flex-wrap justify-center">
-          <div class="lg:flex justify-center">
+          <div class="justify-center">
             <div class="mx-0 lg:mr-4">
               <div class="rounded-lg">
                 <a
@@ -120,7 +121,7 @@ if (wfImage) {
                     >
                       <Image
                         style="margin-top: 0;"
-                        width={hiW > hiH ? 1200 : 600}
+                        width={hiAltW > hiAltH ? 1200 : 600}
                         height={422}
                         format="webp"
                         src={heroImage2}
