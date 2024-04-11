@@ -6,5 +6,6 @@ heroImage: "/adventure-kit-sc.png"
 heroImage2: "/2d-v2.png"
 wfImage: "/adventure-kit-wf.png"
 gallery: "adventure-kit"
-tags: ["Blender" , "Substance Painter" , "Prop Pack"]
+tags: ["Blender", "Substance Painter", "Prop Pack"]
+imageCompare: false
 ---

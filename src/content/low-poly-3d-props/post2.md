@@ -6,5 +6,6 @@ heroImage: "/close-up.png"
 heroImage2: "/part-1-bg1.png"
 wfImage: "/cafe-props-part-1-wf.png"
 wfImage2: "/cafe-props-izo-part-1-wf.png"
-tags: ["Blender" , "Prop Pack"]
+tags: ["Blender", "Prop Pack"]
+imageCompare: false
 ---
