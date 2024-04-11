@@ -5,9 +5,7 @@
 .bg-primary {
     color: red;
 }
-body {
-    font-family: 'Montserrat Variable', sans-serif;
-  }
+
 
 image-compare {
     --thumb-background-color: hsla(0, 0%, 16%, 0.769);
