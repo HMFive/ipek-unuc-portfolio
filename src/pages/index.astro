@@ -4,11 +4,11 @@ import HorizontalCard from "../components/HorizontalCard.astro";
 import { getCollection } from "astro:content";
 import createSlug from "../lib/createSlug";
 
-/*const posts = (await getCollection("blog")).sort(
+const posts = (await getCollection("blog")).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 
-const last_posts = posts.slice(0, 3);*/
+const last_posts = posts.slice(0, 3);
 ---
 
 <BaseLayout sideBarActiveItemID="home">
@@ -18,9 +18,7 @@ const last_posts = posts.slice(0, 3);*/
     <div class="text-3xl py-3 font-bold">Architect and 2D & 3D Artist</div>
     <div class="py-2">
       <text class="text-lg">
-        Hey! I'm an architecture grad with a passion for both 2D and 3D art.
-        Specializing in 3D modeling, texturing and rendering, I aim to blend the
-        best of all the fields I'm involved in.
+        Hey! I'm an architecture grad with a passion for both 2D and 3D art. Specializing in 3D modeling, texturing and rendering, I aim to blend the best of all the fields I'm involved in.
       </text>
     </div>
     <div class="mt-8">
