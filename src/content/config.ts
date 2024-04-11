@@ -16,7 +16,7 @@ const blogSchema = z.object({
   gallery: z.string().optional(),
   wfImage: z.string().optional(),
   wfImage2: z.string().optional(),
-  imageCompare: z.boolean(),
+  imageCompare: z.boolean().optional(),
 });
 
 const storeSchema = z.object({
