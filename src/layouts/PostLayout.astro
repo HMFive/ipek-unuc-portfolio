@@ -88,7 +88,9 @@ if (wfImage) {
       }
       <photo-swipe>
         <div id="gallery" class="flex flex-wrap justify-center">
-          <div class="justify-center">
+          <div
+            class={imageCompare ? "lg:flex justify-center" : "justify-center"}
+          >
             <div class="mx-0 lg:mr-4">
               <div class="rounded-lg">
                 <a
