@@ -27,7 +27,7 @@ import { Image } from "astro:assets";
 import Gallery from "@components/Gallery.astro";
 
 const imageFiles = import.meta.glob<ImageMetadata>(
-  "../../public/**/*.{png,webp,jpg,jpeg}",
+  "../../public/**/*.{png,webp,jpg,jpeg,gif}",
   {
     import: "default",
     eager: true,
