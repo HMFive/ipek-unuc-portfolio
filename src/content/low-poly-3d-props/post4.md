@@ -1,7 +1,8 @@
 ---
-title: "Low Poly Stylized Hammer"
+title: "Animated Cauldron"
 description: ""
-pubDate: "Sep 10 2022"
-heroImage: "/stylized-hammer.png"
-tags: ["Blender" , "Substance Painter"]
+pubDate: "2022"
+heroImage: "/animated-cauldron.png"
+wfimage: "/animated-cauldron.gif"
+tags: ["Blender"]
 ---
