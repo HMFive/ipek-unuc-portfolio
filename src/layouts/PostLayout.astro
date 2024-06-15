@@ -20,6 +20,7 @@ const {
   wfImage,
   wfImage2,
   imageCompare = true,
+  glb,
 } = Astro.props;
 dayjs.extend(localizedFormat);
 const displayDate = dayjs(pubDate).format("ll");
@@ -59,6 +60,21 @@ if (wfImage) {
 <script src="https://unpkg.com/@cloudfour/image-compare/dist/index.min.js"
 ></script>
 
+<script
+  type="module"
+  src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"
+></script>
+<style>
+  model-viewer {
+    width: auto;
+    height: 600px;
+    background-color: bisque;
+    border-radius: 10px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-right: 15px;
+  }
+</style>
 <BaseLayout
   title={title}
   description={description}
@@ -68,6 +84,30 @@ if (wfImage) {
   <main class="md:flex md:justify-center">
     <article class="prose prose-lg max-w-[1000px] prose-img:mx-auto">
       <h1 class="title text-center my-2 text-4xl font-bold">{title}</h1>
+      {
+        glb && (
+          <div>
+            <model-viewer
+              src={glb}
+              ar
+              ar-modes="webxr scene-viewer quick-look"
+              camera-controls
+              tone-mapping="neutral"
+              poster="poster.webp"
+              shadow-intensity="1"
+            >
+              <div class="progress-bar hide" slot="progress-bar">
+                <div class="update-bar" />
+              </div>
+              <button slot="ar-button" id="ar-button">
+                {" "}
+                View in your space{" "}
+              </button>
+            </model-viewer>
+          </div>
+        )
+      }
+
       {
         heroImage2 && imageCompare && (
           <image-compare label-text="Screen Reader Label Text">
