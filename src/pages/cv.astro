@@ -3,12 +3,23 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import TimeLineElement from "../components/cv/TimeLine.astro";
 ---
 
+<style>
+  #pdfViewer {
+    width: 100%;
+    height: 100vh;
+    border: none;
+  }
+</style>
 <BaseLayout title="Resume" sideBarActiveItemID="cv">
   <button
     class="btn btn-primary rounded-full mb-5"
     type="submit"
     onclick="window.open('ipek-cv-2024.pdf')">Download CV</button
   >
+  <iframe
+    id="pdfViewer"
+    src="https://docs.google.com/gview?url=https://ipekunuc.com/cv/ipek-cv-2024.pdf&embedded=true"
+    frameborder="0"></iframe>
 
   <div class="mb-5">
     <div class="text-3xl w-full font-bold">Profile</div>
